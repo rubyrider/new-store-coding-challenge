@@ -1,4 +1,6 @@
-require './main.rb'
+# frozen_string_literal: true
+
+require './main'
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
