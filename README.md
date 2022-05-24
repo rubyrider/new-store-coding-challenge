@@ -16,9 +16,46 @@ To Run Test Suits
 bundle exec rspec
 ```
 
+So the available specs coverages are:
+```bash
+OrderManager
+  basics
+    should allow to add product to cart
+    without line items
+      should not allow to dispatch line item by tracking number
+  #add_to_cart
+    is expected to add line_item to cart
+    is expected to increment quantity for the same line product
+  #dispatch
+    when line-items not shipped
+      will allow to assign tracking url for shipment
+      dispatches tracker "Tracker A" to line-item "SKU1"
+      dispatches tracker "Tracker A" to line-item "SKU2"
+      dispatches tracker "Tracker B" to line-item "SKU3"
+    when line-items shipped
+      will not allow to re-assign a tracking url
+
+StorageSupport
+  #update
+    with valid column
+      is expected to update table column with updated_at timestamp
+    with invalid column
+      is expected to raise concern/exceptio
+```
+
 To Enter interactive bash
 ```bash
 bin/console
+```
+
+How to Play
+
+```ruby
+manager = OrderManager.new
+# => #<OrderManager:0x0000000107182970 @errors=[], @order=#<Order:0x00000001071788d0 @updated_at=2022-05-24 07:17:54.620059 +0200, @uuid="3859d33418548421c6e93e0686c84e0c">>
+manager.may_add_to_cart?
+# => true
+manager.may_dispatch? # Because there are no line_items
 ```
 
 #### The Challenge
