@@ -1,6 +1,4 @@
 require 'rubygems'
 require 'bundler'
 
-class OrderManager
-
-end
+require "./order_manager"
