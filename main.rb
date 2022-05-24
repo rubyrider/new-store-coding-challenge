@@ -2,6 +2,8 @@ require 'rubygems'
 require 'bundler'
 require 'securerandom'
 
+Bundler.require
+
 autoload :StorageSupport, "./supports/storage_support"
 autoload :Product, "./tables/product"
 autoload :Shipment, "./tables/shipment"
